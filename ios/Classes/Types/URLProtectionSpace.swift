@@ -39,7 +39,7 @@ extension URLProtectionSpace {
         var secResult = SecTrustResultType.invalid
         SecTrustEvaluate(serverTrust, &secResult);
         
-        guard let sslErrorType = secResult != SecTrustResultType.proceed ? secResult : nil else {
+        guard let sslErrorType = secResult != SecTrustResultType.proceed && secResult != SecTrustResultType.unspecified ? secResult : nil else {
             return nil
         }
         
