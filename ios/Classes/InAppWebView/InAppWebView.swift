@@ -2393,6 +2393,7 @@ public class InAppWebView: WKWebView, UIScrollViewDelegate, WKUIDelegate, WKNavi
     }
     
     public func onReceivedServerTrustAuthRequest(challenge: URLAuthenticationChallenge, result: FlutterResult?) {
+    print(challenge)
         if let scheme = challenge.protectionSpace.protocol, scheme == "https",
            let sslCertificate = challenge.protectionSpace.sslCertificate {
             InAppWebView.sslCertificatesMap[challenge.protectionSpace.host] = sslCertificate
